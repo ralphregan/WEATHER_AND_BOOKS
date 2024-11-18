@@ -25,7 +25,11 @@
 
             <div class="feels">
                 <% if(locals.content){%>
-                    <img id="humid_img" src="<%=content.icon %>" alt="Weather icon">
+                    <div class="img_descr">
+                        <img id="humid_img" src="<%=content.icon %>" alt="Weather icon">
+
+                            <p><%=content.desc%></p>
+                    </div>
                     <% } %>
                 
                 <p>feels like  

@@ -38,7 +38,7 @@ app.post("/locate2", async(req,res) =>{
                 //console.log(JSON.stringify(result2));
                 
 
-               console.log(JSON.stringify(result.weather));
+               console.log(JSON.stringify(result.weather[0].description));
         
                 
                 var content ={
@@ -48,7 +48,8 @@ app.post("/locate2", async(req,res) =>{
                     location : result3[0].name,
                     locationC: result3[0].country,
                     wind : Math.round(result.wind.speed),
-                    icon:  `https://openweathermap.org/img/wn/${result.weather.icon}@2x.png`
+                    icon: `https://openweathermap.org/img/wn/${result.weather[0].icon}@2x.png`,
+                    desc : result.weather[0].description,
 
 
                 }
