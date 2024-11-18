@@ -1,0 +1,76 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/styles/main.css">
+
+<body>
+<header>WETHAR</header>
+
+    <div class="container">
+        <div class="locate_time">
+            <% if(locals.content){%>
+              <p id="location_id">  <%=content.location%> , <%= content.locationC%></p>
+                <% }else{%>
+                    <form action="/locate2" method="post">
+                        <input type="hidden" value="" id="longitude" name="longitude" placeholder="longitude">
+                        <input type="hidden" value="" id="latitude" name="latitude" placeholder="latitude" >
+                        <button id="weather_btn" type="submit">check your weather</button>
+                    </form>
+            <p id="location_id">Searching your location</p>
+
+           <% } %>
+        </div>
+        <div class="weather">
+            <h1 id="degree"> <% if(locals.content){%>
+                <%=content.temp%><small>°c</small>
+                <% } %></h1>
+
+            <div class="feels">
+                <% if(locals.content){%>
+                    <img id="humid_img" src="<%=content.icon %>" alt="Weather icon">
+                    <% } %>
+                
+                <p>feels like  
+                    <% if(locals.content){%>
+                       <strong> <%=content.feels%>°c</strong> 
+                        <% }else{%>
+                        <strong>nothing yet</strong>
+                    <% } %> </p>
+            </div>
+            <div class="wind_humidity">
+                <div class="wind">
+                    <p>wind</p>
+                    <% if(locals.content){%>
+                        <%=content.wind%> <small>m/s</small>
+                        <% } %>
+                </div>
+                <div class="humid">
+
+                    <p>humidity </p>
+                    <% if(locals.content){%>
+                        <%=content.humidity%>
+                       
+                        <% } %>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+</body>
+
+<script>
+   
+
+        navigator.geolocation.getCurrentPosition((position)=>{
+ 
+$("#longitude").val(JSON.stringify((position.coords.longitude)))
+$("#latitude").val(JSON.stringify((position.coords.latitude)))
+})
+
+</script>
