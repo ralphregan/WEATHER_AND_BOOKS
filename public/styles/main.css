@@ -28,7 +28,7 @@
 
 }
 body{
-    background: #e5e5e5;
+    background: #090909;
 }
 #location_id{
   
@@ -36,6 +36,7 @@ body{
     font-size: 20px;
     font-family: "Merriweather", serif;
     text-shadow: 4px 2px 2px #3030305d;
+    margin-top: 20px;
     
 }
 #time_id{
@@ -67,10 +68,20 @@ body{
 }
 #weather_btn{
 background-color: rgba(255, 255, 255, 0.852);
-font-weight: 500;
+font-weight: 600;
 font-size: 30px;
 border-radius: 10px;
+text-align: center;
+cursor: pointer;
 border: solid grey;
+text-shadow: 4px 2px 2px #30303091;
+transition: all 0.3s ease;
+
+}
+#weather_btn:hover{
+transform: scale(1.1);
+
+box-shadow: 0 0 20px 5px rgba(56, 228, 205, 0.954);
 }
 header{
     text-align: center;
