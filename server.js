@@ -14,7 +14,7 @@ const aPI_KEY2 = process.env.API_KEY2
 const app = express()
 app.use(express.static("public"))
 app.use(express.urlencoded({extended:true}))
-const port = 3000
+const port = process.env.PORT || 3000
 const API_URL = "https://api.openweathermap.org/data/2.5/weather?"
 const API3_URL = "http://api.openweathermap.org/geo/1.0/reverse?"
 //for OPEN WEATHER
